@@ -1,0 +1,36 @@
+@protocol = HTTP/1.1
+@host = http://localhost
+@port = 8080
+@baseUrl = /v1/api/authors
+@url = {{host}}:{{port}}{{baseUrl}}
+@contentTypeJson = application/json
+@entityId = 601129f432aea76aa41443a2
+
+### findAll
+GET {{url}} {{protocol}}
+Content-Type: {{contentTypeJson}}
+
+### findById
+GET {{url}}/{{entityId}} {{protocol}}
+Content-Type: {{contentTypeJson}}
+
+### save
+POST {{url}} {{protocol}}
+Content-Type: {{contentTypeJson}}
+
+{
+  "name": "author3",
+  "books": ["6010374f0c348a3f45af2b26", "601037520c348a3f45af2b2b"]
+}
+
+### updateById
+PATCH {{url}}/{{entityId}} {{protocol}}
+Content-Type: {{contentTypeJson}}
+
+{
+  "name": "updated"
+}
+
+### deleteById
+DELETE {{url}}/{{entityId}} {{protocol}}
+Content-Type: {{contentTypeJson}}

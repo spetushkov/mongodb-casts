@@ -1,0 +1,36 @@
+@protocol = HTTP/1.1
+@host = http://localhost
+@port = 8080
+@baseUrl = /v1/api/books
+@url = {{host}}:{{port}}{{baseUrl}}
+@contentTypeJson = application/json
+@entityId = 601037290c348a3f45af2b21
+
+### findAll
+GET {{url}} {{protocol}}
+Content-Type: {{contentTypeJson}}
+
+### findById
+GET {{url}}/{{entityId}} {{protocol}}
+Content-Type: {{contentTypeJson}}
+
+### save
+POST {{url}} {{protocol}}
+Content-Type: {{contentTypeJson}}
+
+{
+  "name": "book6",
+  "publisher": "60103650f71d7e3e3964905c"
+}
+
+### updateById
+PATCH {{url}}/{{entityId}} {{protocol}}
+Content-Type: {{contentTypeJson}}
+
+{
+  "name": "updated"
+}
+
+### deleteById
+DELETE {{url}}/{{entityId}} {{protocol}}
+Content-Type: {{contentTypeJson}}
